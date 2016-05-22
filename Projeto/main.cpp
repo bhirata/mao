@@ -393,6 +393,42 @@ void display(void){
 }
 
 
+void anima_tchau (int i){
+    if (!inverte_mao){
+        angulo_mao = angulo_mao + 5;
+        if (angulo_mao >= 80){
+            inverte_mao = 1;
+        }
+    }
+    else{
+        angulo_mao = angulo_mao - 5;
+        if (angulo_mao <= -80){
+            inverte_mao = 0;
+        }
+    }
+    glutPostRedisplay();
+    glutTimerFunc(100,anima_tchau,1);
+}
+
+
+void anima_uhuuu (int i){
+    if (!inverte_mao1){
+        angulo_elev_mao = angulo_elev_mao + 5;
+        if (angulo_elev_mao >= 80){
+            inverte_mao1 = 1;
+        }
+    }
+    else{
+        angulo_elev_mao = angulo_elev_mao - 5;
+        if (angulo_elev_mao <= -80){
+            inverte_mao1 = 0;
+        }
+    }
+    glutPostRedisplay();
+    glutTimerFunc(100,anima_uhuuu,1);
+}
+
+
 void DefineIluminacao(void){
     // estrutura de dados
     GLfloat luzAmbiente[4] = {0.5,0.5,0.5,1.0};
@@ -670,6 +706,14 @@ void keyboard (unsigned char key, int x, int y){
             elev_mendinhoF1 = (elev_mendinhoF1 - 5) % 360;
             if (elev_mendinhoF1 == 0) elev_mendinhoF1 = 359;
             printf("\n) %d", elev_mendinhoF1);  
+            glutPostRedisplay();
+            break;
+        case '1': // Aproxima o mendinho da face interior da mao
+            glutTimerFunc(100,anima_tchau,1); 
+            glutPostRedisplay();
+            break;
+        case '2': // Aproxima o mendinho da face interior da mao
+            glutTimerFunc(100,anima_uhuuu,1); 
             glutPostRedisplay();
             break;
         case 27:
