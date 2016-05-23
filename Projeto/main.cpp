@@ -428,6 +428,10 @@ void anima_uhuuu (int i){
     glutTimerFunc(100,anima_uhuuu,1);
 }
 
+void anima_meio (int i){
+    
+}
+
 
 void DefineIluminacao(void){
     // estrutura de dados

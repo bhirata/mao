@@ -4,6 +4,7 @@
 #include <GLUT/glut.h>
 #include <OpenGL/gl.h>
 #include <OpenGL/glu.h>
+#include <cmath>
 
 GLfloat angulo = 0;
 
@@ -21,17 +22,6 @@ void start (){
     
 }
 
-
-// void reshape (int w, int h){
-//     glViewport (0, 0, (GLsizei) w, (GLsizei) h);
-//     glMatrixMode(GL_PROJECTION);
-//     glLoadIdentity();
-//     gluPerspective(60.0, (GLfloat) w/ (GLfloat) h, 1.0, 500.0);
-//     gluLookAt(80, 0, 20, 0, 0, 0, 0, 0, 1);
-// }
-
-
-
 void anima (int i){
 	
 	if(angulo < 20){
@@ -48,38 +38,11 @@ void anima (int i){
 
 
 void display (){
-	// glClear(GL_COLOR_BUFFER_BIT);
-	// glColor3f(1.0, 1.0, 1.0);
-	// glRotatef ((GLfloat) angulo, 0.0, 0.0, 5.0);
-	// glPushMatrix();
-	// glScalef (4.0, 2.0, 0.5);
- //    glutSolidCube (5.0);
- //    glPopMatrix();
- //    glutSwapBuffers();
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	glTranslatef (angulo+5.0, 0.0, 0.0);
 	glutSolidTeapot (5.0);
 
- // glPolygonMode(GL_BACK, GL_LINE);
-  // glColor3f(1.0, 1.0, 1.0);
-  // glLineWidth(15.0);
-  // glBegin(GL_LINE_LOOP);
-  // glVertex2i(2,2);  glVertex2i(599,2);
-  // glVertex2i(599,399); glVertex2i(2,399);
-  // glEnd();
-
-  // glBegin(GL_LINES);
-  // glVertex2i(100,190);  glVertex2i(100,240);
-  // glVertex2i(500,190);  glVertex2i(500,240);
-  // glEnd();
-
-  // glPointSize(15.0);
-  // glBegin(GL_POINTS);
-  // glVertex2i(angulo+200,210);
-  // glEnd();
-
-//  glFlush();
   glutSwapBuffers();
 }
 
@@ -89,8 +52,6 @@ int  main(int argc, char  *argv[]){
     start();
     glutDisplayFunc(display);
 	glutTimerFunc(100,anima,1);
-    // glutReshapeFunc(reshape);
-    // glutDisplayFunc(display);
 
 	glutMainLoop();
 	return 0;
